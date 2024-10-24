@@ -23,6 +23,8 @@ namespace Hulujan_Iulia_Petruta_Lab2.Models
         public int? PublisherID { get; set; }
         public Publisher? Publisher { get; set; }
 
+        public ICollection<BookCategory>? BookCategories { get; set; }
+
 
     }
 }
