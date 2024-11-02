@@ -4,6 +4,7 @@ using Hulujan_Iulia_Petruta_Lab2.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Hulujan_Iulia_Petruta_Lab2.Migrations
 {
     [DbContext(typeof(Hulujan_Iulia_Petruta_Lab2Context))]
-    partial class Hulujan_Iulia_Petruta_Lab2ContextModelSnapshot : ModelSnapshot
+    [Migration("20241031155402_CategorySelect")]
+    partial class CategorySelect
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
