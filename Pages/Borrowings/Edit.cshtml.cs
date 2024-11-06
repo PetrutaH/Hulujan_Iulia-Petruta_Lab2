@@ -30,14 +30,31 @@ namespace Hulujan_Iulia_Petruta_Lab2.Pages.Borrowings
                 return NotFound();
             }
 
-            var borrowing =  await _context.Borrowing.FirstOrDefaultAsync(m => m.ID == id);
+            var borrowing =  await _context.Borrowing
+                //.Include(bo => bo.Book)
+                //.ThenInclude(b => b.Author)
+                .FirstOrDefaultAsync(m => m.ID == id);
+
             if (borrowing == null)
             {
                 return NotFound();
             }
             Borrowing = borrowing;
-           ViewData["BookID"] = new SelectList(_context.Book, "ID", "ID");
-           ViewData["MemberID"] = new SelectList(_context.Member, "ID", "ID");
+
+            var bookList = _context.Book
+                .Include(b => b.Author)
+                .Select(b => new
+                {
+                    b.ID,
+                    BookFullName = b.Title + " - " + b.Author.FullName
+                });
+
+            ViewData["BookID"] = new SelectList(bookList, "ID", "BookFullName");
+
+            ViewData["MemberID"] = new SelectList(_context.Member, "ID", "FullName");
+
+            //ViewData["BookID"] = new SelectList(_context.Book, "ID", "ID");
+            //ViewData["MemberID"] = new SelectList(_context.Member, "ID", "ID");
             return Page();
         }
 
