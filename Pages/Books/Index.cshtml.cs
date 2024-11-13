@@ -51,9 +51,8 @@ namespace Hulujan_Iulia_Petruta_Lab2.Pages.Books
             if (!String.IsNullOrEmpty(searchString))
             {
                 BookD.Books = BookD.Books.Where(s => s.Author.FirstName.Contains(searchString)
-
-          || s.Author.LastName.Contains(searchString)
-          || s.Title.Contains(searchString));
+                  || s.Author.LastName.Contains(searchString)
+                  || s.Title.Contains(searchString));
 
                 if (id != null)
                 {

@@ -9,9 +9,11 @@ using Hulujan_Iulia_Petruta_Lab2.Data;
 using Hulujan_Iulia_Petruta_Lab2.Models;
 using Hulujan_Iulia_Petruta_Lab2.Models.ViewModels;
 using System.Security.Policy;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Hulujan_Iulia_Petruta_Lab2.Pages.Categories
 {
+    [Authorize(Roles = "Admin")]
     public class IndexModel : PageModel
     {
         private readonly Hulujan_Iulia_Petruta_Lab2.Data.Hulujan_Iulia_Petruta_Lab2Context _context;

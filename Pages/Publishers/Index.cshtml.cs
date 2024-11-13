@@ -8,9 +8,11 @@ using Microsoft.EntityFrameworkCore;
 using Hulujan_Iulia_Petruta_Lab2.Data;
 using Hulujan_Iulia_Petruta_Lab2.Models;
 using Hulujan_Iulia_Petruta_Lab2.Models.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Hulujan_Iulia_Petruta_Lab2.Pages.Publishers
 {
+    [Authorize(Roles = "Admin")]
     public class IndexModel : PageModel
     {
         private readonly Hulujan_Iulia_Petruta_Lab2.Data.Hulujan_Iulia_Petruta_Lab2Context _context;
